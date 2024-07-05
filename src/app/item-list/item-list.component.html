@@ -1,0 +1,13 @@
+<div class="item-wrapper">
+    <ul>
+      <li *ngFor="let item of paginateItems()" (click)="selectItem(item)">
+        {{ item.title }}
+      </li>
+    </ul>
+
+    <div class="d-flex btn-wrapper">
+        <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+        <button (click)="nextPage()" [disabled]="(currentPage * itemsPerPage) >= items.length">Next</button>
+    </div>
+    <app-item-detail [item]="selectedItem"></app-item-detail>
+</div>
